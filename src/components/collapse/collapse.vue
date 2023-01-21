@@ -63,9 +63,9 @@ export default {
   justify-content: space-between;
   width: 100%;
   padding: 5px 10px;
-  border: 1px solid rgb(25, 135, 84);
+  border: 1px solid rgb(13, 110, 253);
   border-radius: 10px;
-  background: rgb(50, 50, 50);
+  background: white;
 }
 
 .DETAILS > button::before {
@@ -80,8 +80,8 @@ export default {
 .DETAILS .DETAILS-BODY {
   margin-top: 5px;
   padding: 10px;
-  border: 1px solid rgb(25, 135, 84);
+  border: 1px solid rgb(13, 110, 253);
   border-radius: 10px;
-  background: rgb(50, 50, 50);
+  background: white;
 }
 </style>

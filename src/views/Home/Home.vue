@@ -57,6 +57,14 @@
       </tabs>
     </template>
   </tabs>
+  <collapse>
+    <template #header>
+      <h1>Header</h1>
+    </template>
+    <template #body>
+      <h1>Body</h1>
+    </template>
+  </collapse>
 </template>
 
 <script>
