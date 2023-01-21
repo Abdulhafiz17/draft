@@ -1,0 +1,185 @@
+:root {
+  --blue: rgb(13, 110, 253);
+  --indigo: rgb(102, 16, 242);
+  --purple: rgb(111, 66, 193);
+  --pink: rgb(214, 51, 132);
+  --red: rgb(220, 53, 69);
+  --orange: rgb(253, 126, 20);
+  --yellow: rgb(255, 193, 7);
+  --green: rgb(25, 135, 84);
+  --teal: rgb(32, 201, 151);
+  --cyan: rgb(13, 202, 240);
+}
+
+input:not(.swal-modal input),
+textarea,
+select {
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: inset 0 0 5px -1px gray, 0 5px 10px -5px gray;
+  transition: all 0.2s;
+}
+
+input:not(.swal-modal input),
+textarea {
+  padding: 5px 10px;
+}
+
+input:not(.swal-modal input):focus,
+textarea:focus,
+select:focus {
+  box-shadow: inset 0 0 1px 2px gray, 0 5px 10px -5px gray;
+}
+
+input[color="blue"],
+textarea[color="blue"],
+select[color="blue"] {
+  box-shadow: inset 0 0 5px -1px var(--blue), 0 5px 10px -5px var(--blue) !important;
+}
+
+input[color="blue"]:focus,
+textarea[color="blue"]:focus,
+select[color="blue"]:focus {
+  box-shadow: inset 0 0 1px 2px var(--blue), 0 5px 10px -5px var(--blue) !important;
+}
+
+input[color="indigo"],
+textarea[color="indigo"],
+select[color="indigo"] {
+  box-shadow: inset 0 0 5px -1px var(--indigo), 0 5px 10px -5px var(--indigo) !important;
+}
+
+input[color="indigo"]:focus,
+textarea[color="indigo"]:focus,
+select[color="indigo"]:focus {
+  box-shadow: inset 0 0 1px 2px var(--indigo), 0 5px 10px -5px var(--indigo) !important;
+}
+
+input[color="purple"],
+textarea[color="purple"],
+select[color="purple"] {
+  box-shadow: inset 0 0 5px -1px var(--purple), 0 5px 10px -5px var(--purple) !important;
+}
+
+input[color="purple"]:focus,
+textarea[color="purple"]:focus,
+select[color="purple"]:focus {
+  box-shadow: inset 0 0 1px 2px var(--purple), 0 5px 10px -5px var(--purple) !important;
+}
+
+input[color="pink"],
+textarea[color="pink"],
+select[color="pink"] {
+  box-shadow: inset 0 0 5px -1px var(--pink), 0 5px 10px -5px var(--pink) !important;
+}
+
+input[color="pink"]:focus,
+textarea[color="pink"]:focus,
+select[color="pink"]:focus {
+  box-shadow: inset 0 0 1px 2px var(--pink), 0 5px 10px -5px var(--pink) !important;
+}
+
+input[color="red"],
+textarea[color="red"],
+select[color="red"] {
+  box-shadow: inset 0 0 5px -1px var(--red), 0 5px 10px -5px var(--red) !important;
+}
+
+input[color="red"]:focus,
+textarea[color="red"]:focus,
+select[color="red"]:focus {
+  box-shadow: inset 0 0 1px 2px var(--red), 0 5px 10px -5px var(--red) !important;
+}
+
+input[color="orange"],
+textarea[color="orange"],
+select[color="orange"] {
+  box-shadow: inset 0 0 5px -1px var(--orange), 0 5px 10px -5px var(--orange) !important;
+}
+
+input[color="orange"]:focus,
+textarea[color="orange"]:focus,
+select[color="orange"]:focus {
+  box-shadow: inset 0 0 1px 2px var(--orange), 0 5px 10px -5px var(--orange) !important;
+}
+
+input[color="yellow"],
+textarea[color="yellow"],
+select[color="yellow"] {
+  box-shadow: inset 0 0 5px -1px var(--yellow), 0 5px 10px -5px var(--yellow) !important;
+}
+
+input[color="yellow"]:focus,
+textarea[color="yellow"]:focus,
+select[color="yellow"]:focus {
+  box-shadow: inset 0 0 1px 2px var(--yellow), 0 5px 10px -5px var(--yellow) !important;
+}
+
+input[color="green"],
+textarea[color="green"],
+select[color="green"] {
+  box-shadow: inset 0 0 5px -1px var(--green), 0 5px 10px -5px var(--green) !important;
+}
+
+input[color="green"]:focus,
+textarea[color="green"]:focus,
+select[color="green"]:focus {
+  box-shadow: inset 0 0 1px 2px var(--green), 0 5px 10px -5px var(--green) !important;
+}
+
+input[color="teal"],
+textarea[color="teal"],
+select[color="teal"] {
+  box-shadow: inset 0 0 5px -1px var(--teal), 0 5px 10px -5px var(--teal) !important;
+}
+
+input[color="teal"]:focus,
+textarea[color="teal"]:focus,
+select[color="teal"]:focus {
+  box-shadow: inset 0 0 1px 2px var(--teal), 0 5px 10px -5px var(--teal) !important;
+}
+
+input[color="cyan"],
+textarea[color="cyan"],
+select[color="cyan"] {
+  box-shadow: inset 0 0 5px -1px var(--cyan), 0 5px 10px -5px var(--cyan) !important;
+}
+
+input[color="cyan"]:focus,
+textarea[color="cyan"]:focus,
+select[color="cyan"]:focus {
+  box-shadow: inset 0 0 1px 2px var(--cyan), 0 5px 10px -5px var(--cyan) !important;
+}
+
+.input-group-text {
+  border: none;
+  background: white;
+  box-shadow: inset 0 0 5px -1px var(--green), 0 5px 10px -5px var(--green);
+}
+
+[currency] {
+  position: relative;
+}
+
+[currency]::before {
+  content: attr(title);
+  position: absolute;
+  top: -100%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  color: whitesmoke;
+  background-color: var(--background);
+  transform: scale(0);
+  transform-origin: bottom;
+  transition: all 0.15s;
+}
+
+[currency]:has(input:focus)::before {
+  transform: scale(1);
+}
