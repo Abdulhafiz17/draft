@@ -11,7 +11,7 @@
   --cyan: rgb(13, 202, 240);
 }
 
-input:not(.swal-modal input),
+input:not(.swal-modal input, [type="checkbox"], [type="radio"]),
 textarea,
 select {
   border: none;
@@ -21,134 +21,134 @@ select {
   transition: all 0.2s;
 }
 
-input:not(.swal-modal input),
+input:not(.swal-modal input, [type="checkbox"], [type="radio"]),
 textarea {
   padding: 5px 10px;
 }
 
-input:not(.swal-modal input):focus,
+input:not(.swal-modal input, [type="checkbox"], [type="radio"]):focus,
 textarea:focus,
 select:focus {
   box-shadow: inset 0 0 1px 2px gray, 0 5px 10px -5px gray;
 }
 
-input[color="blue"],
-textarea[color="blue"],
-select[color="blue"] {
+input[color="blue"]:not([type="checkbox"], [type="radio"]),
+textarea[color="blue"]:not([type="checkbox"], [type="radio"]),
+select[color="blue"]:not([type="checkbox"], [type="radio"]) {
   box-shadow: inset 0 0 5px -1px var(--blue), 0 5px 10px -5px var(--blue) !important;
 }
 
-input[color="blue"]:focus,
-textarea[color="blue"]:focus,
-select[color="blue"]:focus {
+input[color="blue"]:not([type="checkbox"], [type="radio"]):focus,
+textarea[color="blue"]:not([type="checkbox"], [type="radio"]):focus,
+select[color="blue"]:not([type="checkbox"], [type="radio"]):focus {
   box-shadow: inset 0 0 1px 2px var(--blue), 0 5px 10px -5px var(--blue) !important;
 }
 
-input[color="indigo"],
-textarea[color="indigo"],
-select[color="indigo"] {
+input[color="indigo"]:not([type="checkbox"], [type="radio"]),
+textarea[color="indigo"]:not([type="checkbox"], [type="radio"]),
+select[color="indigo"]:not([type="checkbox"], [type="radio"]) {
   box-shadow: inset 0 0 5px -1px var(--indigo), 0 5px 10px -5px var(--indigo) !important;
 }
 
-input[color="indigo"]:focus,
-textarea[color="indigo"]:focus,
-select[color="indigo"]:focus {
+input[color="indigo"]:not([type="checkbox"], [type="radio"]):focus,
+textarea[color="indigo"]:not([type="checkbox"], [type="radio"]):focus,
+select[color="indigo"]:not([type="checkbox"], [type="radio"]):focus {
   box-shadow: inset 0 0 1px 2px var(--indigo), 0 5px 10px -5px var(--indigo) !important;
 }
 
-input[color="purple"],
-textarea[color="purple"],
-select[color="purple"] {
+input[color="purple"]:not([type="checkbox"], [type="radio"]),
+textarea[color="purple"]:not([type="checkbox"], [type="radio"]),
+select[color="purple"]:not([type="checkbox"], [type="radio"]) {
   box-shadow: inset 0 0 5px -1px var(--purple), 0 5px 10px -5px var(--purple) !important;
 }
 
-input[color="purple"]:focus,
-textarea[color="purple"]:focus,
-select[color="purple"]:focus {
+input[color="purple"]:not([type="checkbox"], [type="radio"]):focus,
+textarea[color="purple"]:not([type="checkbox"], [type="radio"]):focus,
+select[color="purple"]:not([type="checkbox"], [type="radio"]):focus {
   box-shadow: inset 0 0 1px 2px var(--purple), 0 5px 10px -5px var(--purple) !important;
 }
 
-input[color="pink"],
-textarea[color="pink"],
-select[color="pink"] {
+input[color="pink"]:not([type="checkbox"], [type="radio"]),
+textarea[color="pink"]:not([type="checkbox"], [type="radio"]),
+select[color="pink"]:not([type="checkbox"], [type="radio"]) {
   box-shadow: inset 0 0 5px -1px var(--pink), 0 5px 10px -5px var(--pink) !important;
 }
 
-input[color="pink"]:focus,
-textarea[color="pink"]:focus,
-select[color="pink"]:focus {
+input[color="pink"]:not([type="checkbox"], [type="radio"]):focus,
+textarea[color="pink"]:not([type="checkbox"], [type="radio"]):focus,
+select[color="pink"]:not([type="checkbox"], [type="radio"]):focus {
   box-shadow: inset 0 0 1px 2px var(--pink), 0 5px 10px -5px var(--pink) !important;
 }
 
-input[color="red"],
-textarea[color="red"],
-select[color="red"] {
+input[color="red"]:not([type="checkbox"], [type="radio"]),
+textarea[color="red"]:not([type="checkbox"], [type="radio"]),
+select[color="red"]:not([type="checkbox"], [type="radio"]) {
   box-shadow: inset 0 0 5px -1px var(--red), 0 5px 10px -5px var(--red) !important;
 }
 
-input[color="red"]:focus,
-textarea[color="red"]:focus,
-select[color="red"]:focus {
+input[color="red"]:not([type="checkbox"], [type="radio"]):focus,
+textarea[color="red"]:not([type="checkbox"], [type="radio"]):focus,
+select[color="red"]:not([type="checkbox"], [type="radio"]):focus {
   box-shadow: inset 0 0 1px 2px var(--red), 0 5px 10px -5px var(--red) !important;
 }
 
-input[color="orange"],
-textarea[color="orange"],
-select[color="orange"] {
+input[color="orange"]:not([type="checkbox"], [type="radio"]),
+textarea[color="orange"]:not([type="checkbox"], [type="radio"]),
+select[color="orange"]:not([type="checkbox"], [type="radio"]) {
   box-shadow: inset 0 0 5px -1px var(--orange), 0 5px 10px -5px var(--orange) !important;
 }
 
-input[color="orange"]:focus,
-textarea[color="orange"]:focus,
-select[color="orange"]:focus {
+input[color="orange"]:not([type="checkbox"], [type="radio"]):focus,
+textarea[color="orange"]:not([type="checkbox"], [type="radio"]):focus,
+select[color="orange"]:not([type="checkbox"], [type="radio"]):focus {
   box-shadow: inset 0 0 1px 2px var(--orange), 0 5px 10px -5px var(--orange) !important;
 }
 
-input[color="yellow"],
-textarea[color="yellow"],
-select[color="yellow"] {
+input[color="yellow"]:not([type="checkbox"], [type="radio"]),
+textarea[color="yellow"]:not([type="checkbox"], [type="radio"]),
+select[color="yellow"]:not([type="checkbox"], [type="radio"]) {
   box-shadow: inset 0 0 5px -1px var(--yellow), 0 5px 10px -5px var(--yellow) !important;
 }
 
-input[color="yellow"]:focus,
-textarea[color="yellow"]:focus,
-select[color="yellow"]:focus {
+input[color="yellow"]:not([type="checkbox"], [type="radio"]):focus,
+textarea[color="yellow"]:not([type="checkbox"], [type="radio"]):focus,
+select[color="yellow"]:not([type="checkbox"], [type="radio"]):focus {
   box-shadow: inset 0 0 1px 2px var(--yellow), 0 5px 10px -5px var(--yellow) !important;
 }
 
-input[color="green"],
-textarea[color="green"],
-select[color="green"] {
+input[color="green"]:not([type="checkbox"], [type="radio"]),
+textarea[color="green"]:not([type="checkbox"], [type="radio"]),
+select[color="green"]:not([type="checkbox"], [type="radio"]) {
   box-shadow: inset 0 0 5px -1px var(--green), 0 5px 10px -5px var(--green) !important;
 }
 
-input[color="green"]:focus,
-textarea[color="green"]:focus,
-select[color="green"]:focus {
+input[color="green"]:not([type="checkbox"], [type="radio"]):focus,
+textarea[color="green"]:not([type="checkbox"], [type="radio"]):focus,
+select[color="green"]:not([type="checkbox"], [type="radio"]):focus {
   box-shadow: inset 0 0 1px 2px var(--green), 0 5px 10px -5px var(--green) !important;
 }
 
-input[color="teal"],
-textarea[color="teal"],
-select[color="teal"] {
+input[color="teal"]:not([type="checkbox"], [type="radio"]),
+textarea[color="teal"]:not([type="checkbox"], [type="radio"]),
+select[color="teal"]:not([type="checkbox"], [type="radio"]) {
   box-shadow: inset 0 0 5px -1px var(--teal), 0 5px 10px -5px var(--teal) !important;
 }
 
-input[color="teal"]:focus,
-textarea[color="teal"]:focus,
-select[color="teal"]:focus {
+input[color="teal"]:not([type="checkbox"], [type="radio"]):focus,
+textarea[color="teal"]:not([type="checkbox"], [type="radio"]):focus,
+select[color="teal"]:not([type="checkbox"], [type="radio"]):focus {
   box-shadow: inset 0 0 1px 2px var(--teal), 0 5px 10px -5px var(--teal) !important;
 }
 
-input[color="cyan"],
-textarea[color="cyan"],
-select[color="cyan"] {
+input[color="cyan"]:not([type="checkbox"], [type="radio"]),
+textarea[color="cyan"]:not([type="checkbox"], [type="radio"]),
+select[color="cyan"]:not([type="checkbox"], [type="radio"]) {
   box-shadow: inset 0 0 5px -1px var(--cyan), 0 5px 10px -5px var(--cyan) !important;
 }
 
-input[color="cyan"]:focus,
-textarea[color="cyan"]:focus,
-select[color="cyan"]:focus {
+input[color="cyan"]:not([type="checkbox"], [type="radio"]):focus,
+textarea[color="cyan"]:not([type="checkbox"], [type="radio"]):focus,
+select[color="cyan"]:not([type="checkbox"], [type="radio"]):focus {
   box-shadow: inset 0 0 1px 2px var(--cyan), 0 5px 10px -5px var(--cyan) !important;
 }
 
@@ -156,6 +156,13 @@ select[color="cyan"]:focus {
   border: none;
   background: white;
   box-shadow: inset 0 0 5px -1px var(--green), 0 5px 10px -5px var(--green);
+}
+
+.dark input:not(.swal-modal input, [type="checkbox"], [type="radio"]),
+.dark textarea,
+.dark select {
+  color: whitesmoke;
+  background-color: rgb(50, 50, 50);
 }
 
 [currency] {

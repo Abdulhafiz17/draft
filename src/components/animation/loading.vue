@@ -13,11 +13,6 @@
 <script>
 export default {
   name: "isloading",
-  // data() {
-  //   return {
-  //     isloading: false
-  //   }
-  // },
   mounted() {},
 };
 </script>
@@ -43,7 +38,7 @@ export default {
 .LOADER {
   position: absolute;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: top;
   width: 140px;
   height: 140px;

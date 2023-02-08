@@ -2,7 +2,8 @@ import axios from "axios";
 import store from "@/store/store";
 
 const api = axios.create({
-  baseURL: "http://192.168.1.2:3000/",
+  baseURL: "http://192.168.1.8:3000/",
+  headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 });
 
 export function websocket(url) {
@@ -31,37 +32,57 @@ export function catchError(error) {
 }
 
 export async function login(data) {
-  await store.dispatch("setloading", true);
-  store.dispatch("setloading", false);
-  return await api.post("login", data);
+  store.dispatch("setloading", true);
+  return await api.post("login", data).finally(() => {
+    store.dispatch("setloading", false);
+  });
+}
+
+export async function profile() {
+  store.dispatch("setloading", true);
+  return await api.get("profile").finally(() => {
+    store.dispatch("setloading", false);
+  });
+}
+
+export async function updateProfile(data) {
+  store.dispatch("setloading", true);
+  return await api.put("update_profile", data).finally(() => {
+    store.dispatch("setloading", false);
+  });
 }
 
 export async function todos() {
-  await store.dispatch("setloading", true);
-  store.dispatch("setloading", false);
-  return await api.get("todos");
+  store.dispatch("setloading", true);
+  return await api.get("todos").finally(() => {
+    store.dispatch("setloading", false);
+  });
 }
 
 export async function createTodo(data) {
-  await store.dispatch("setloading", true);
-  store.dispatch("setloading", false);
-  return await api.post("create_todo", data);
+  store.dispatch("setloading", true);
+  return await api.post("create_todo", data).finally(() => {
+    store.dispatch("setloading", false);
+  });
 }
 
 export async function updateTodo(data) {
-  await store.dispatch("setloading", true);
-  store.dispatch("setloading", false);
-  return await api.put(`update_todo/${data.id}`, data);
+  store.dispatch("setloading", true);
+  return await api.put(`update_todo/${data.id}`, data).finally(() => {
+    store.dispatch("setloading", false);
+  });
 }
 
 export async function removeTodo(data) {
-  await store.dispatch("setloading", true);
-  store.dispatch("setloading", false);
-  return await api.delete(`remove_todo/${data.id}`);
+  store.dispatch("setloading", true);
+  return await api.delete(`remove_todo/${data.id}`).finally(() => {
+    store.dispatch("setloading", false);
+  });
 }
 
 export async function createFile(data) {
-  await store.dispatch("setloading", true);
-  store.dispatch("setloading", false);
-  return await api.post(`create_file`, data);
+  store.dispatch("setloading", true);
+  return await api.post(`create_file`, data).finally(() => {
+    store.dispatch("setloading", false);
+  });
 }

@@ -1,5 +1,6 @@
 @import url(../../libraries/bootstrap_css/bootstrap.min.css);
 @import url(../../libraries/fontawesome/css/all.min.css);
+@import url(./dark.css);
 @import url(./input.css);
 
 :root {
@@ -13,8 +14,6 @@
   --green: rgb(25, 135, 84);
   --teal: rgb(32, 201, 151);
   --cyan: rgb(13, 202, 240);
-  --color: rgb(245, 245, 245);
-  --background: rgb(40, 40, 40);
 }
 
 * {
@@ -26,7 +25,7 @@
 }
 
 #app {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,8 +39,10 @@
 }
 
 #main {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  overflow: auto;
   background: whitesmoke;
 }
 
@@ -59,10 +60,28 @@
   overflow-y: hidden;
 }
 
+/* h */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 /* hr */
 
 hr {
   margin: 5px;
+}
+
+/* icon */
+
+.material-symbols-rounded {
+  display: flex;
+  align-items: center;
 }
 
 /* a */
@@ -80,6 +99,13 @@ a:hover {
 
 table tr:hover > td {
   color: var(--color) !important;
+}
+
+/* label */
+
+label {
+  width: 100%;
+  padding: 5px 0;
 }
 
 /* list */

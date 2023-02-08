@@ -71,8 +71,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  background: whitesmoke;
+  width: 100%;
+  height: calc(100vh - 30px);
 }
 </style>

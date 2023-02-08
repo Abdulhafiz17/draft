@@ -29,7 +29,10 @@
       </router-link>
     </div>
   </div>
-  <tabs :buttons="[`Home`, `Profile`]" :slots="[`home`, `profile`]">
+  <tabs
+    :buttons="[`Home`, `Profile`, `Setting`]"
+    :slots="[`home`, `profile`, `setting`]"
+  >
     <template #home>
       <h1>Home</h1>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla nostrum
@@ -55,6 +58,15 @@
           <h2>Setting</h2>
         </template>
       </tabs>
+    </template>
+    <template #setting>
+      <h1>Home</h1>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla nostrum
+      ipsum nemo accusamus, debitis dignissimos sequi fugiat veritatis alias
+      facere dolorem neque culpa iusto ipsa quae dolores aspernatur eum
+      repellat. Sit cupiditate ullam fuga porro eaque consequuntur tempora,
+      repellendus impedit! Magnam laudantium non sed omnis quaerat tempora
+      repellat blanditiis autem.
     </template>
   </tabs>
   <collapse>

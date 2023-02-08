@@ -3,18 +3,14 @@
     <button
       v-for="(item, index) in tab_buttons"
       :key="item"
-      :class="item == active_tab ? 'active' : ''"
-      @click="
-        active_tab = null;
-        active_slot = null;
-      "
-      @click.passive="setTab(index)"
+      :class="item == active_tab ? active_class : ''"
+      @click="setTab(index)"
       :text="item"
     >
       <span>{{ item }}</span>
     </button>
   </div>
-  <transition name="change-tab" mode="out-in">
+  <transition name="tab" mode="out-in">
     <div class="CONTENT" v-if="active_slot">
       <slot :name="active_slot" />
     </div>
@@ -29,6 +25,7 @@ export default {
     return {
       active_tab: this.$props.buttons[0],
       active_slot: this.$props.slots[0],
+      active_class: "active",
     };
   },
   computed: {
@@ -41,8 +38,16 @@ export default {
   },
   methods: {
     setTab(index) {
-      this.active_tab = this.tab_buttons[index];
-      this.active_slot = this.tab_slots[index];
+      let timeout = null;
+      clearTimeout(timeout);
+
+      this.active_tab = null;
+      this.active_slot = null;
+
+      timeout = setTimeout(() => {
+        this.active_tab = this.tab_buttons[index];
+        this.active_slot = this.tab_slots[index];
+      }, 100);
     },
   },
 };
@@ -74,6 +79,14 @@ export default {
   box-shadow: 0 5px 10px -5px var(--blue);
 }
 
+.BUTTONS > button:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.BUTTONS > button:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
 button {
   position: relative;
   flex: 1 1 0;
@@ -81,40 +94,12 @@ button {
   border: none;
   color: black;
   background: initial;
+  box-shadow: inset 0 0 5px -1px var(--blue), 0 1px 5px -2px var(--blue);
+  transition: all 0.15s;
 }
 
-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  right: 50%;
-  height: 100%;
-  border-radius: 10px;
-  background: var(--blue);
-  transition: all 0.3s;
-}
-
-button.active::before {
-  left: 0;
-  right: 0;
-}
-
-button::after {
-  content: attr(text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-}
-
-button.active::after {
-  color: white;
+button.active {
+  box-shadow: inset 0 0 1px 2px var(--blue), 0 1px 5px -2px var(--blue);
 }
 
 .CONTENT {
@@ -125,11 +110,11 @@ button.active::after {
   box-shadow: 0 5px 10px -5px var(--blue);
 }
 
-.change-tab-enter-active {
+.tab-enter-active {
   transform-origin: top;
   animation: changeTab 0.2s ease;
 }
-.change-tab-leave-active {
+.tab-leave-active {
   animation: changeTab 0.2s ease reverse;
 }
 
