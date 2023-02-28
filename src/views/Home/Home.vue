@@ -29,54 +29,6 @@
       </router-link>
     </div>
   </div>
-  <tabs
-    :buttons="[`Home`, `Profile`, `Setting`]"
-    :slots="[`home`, `profile`, `setting`]"
-  >
-    <template #home>
-      <h1>Home</h1>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla nostrum
-      ipsum nemo accusamus, debitis dignissimos sequi fugiat veritatis alias
-      facere dolorem neque culpa iusto ipsa quae dolores aspernatur eum
-      repellat. Sit cupiditate ullam fuga porro eaque consequuntur tempora,
-      repellendus impedit! Magnam laudantium non sed omnis quaerat tempora
-      repellat blanditiis autem.
-    </template>
-    <template #profile>
-      <h1>Profile</h1>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla nostrum
-      ipsum nemo accusamus, debitis dignissimos sequi fugiat veritatis alias
-      facere dolorem neque culpa iusto ipsa quae dolores aspernatur eum
-      repellat. Sit cupiditate ullam fuga porro eaque consequuntur tempora,
-      repellendus impedit! Magnam laudantium non sed omnis quaerat tempora
-      repellat blanditiis autem.
-      <tabs :buttons="[`View`, `Setting`]" :slots="[`view`, `setting`]">
-        <template #view>
-          <h2>View</h2>
-        </template>
-        <template #setting>
-          <h2>Setting</h2>
-        </template>
-      </tabs>
-    </template>
-    <template #setting>
-      <h1>Home</h1>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla nostrum
-      ipsum nemo accusamus, debitis dignissimos sequi fugiat veritatis alias
-      facere dolorem neque culpa iusto ipsa quae dolores aspernatur eum
-      repellat. Sit cupiditate ullam fuga porro eaque consequuntur tempora,
-      repellendus impedit! Magnam laudantium non sed omnis quaerat tempora
-      repellat blanditiis autem.
-    </template>
-  </tabs>
-  <collapse>
-    <template #header>
-      <h1>Header</h1>
-    </template>
-    <template #body>
-      <h1>Body</h1>
-    </template>
-  </collapse>
 </template>
 
 <script>

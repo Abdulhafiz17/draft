@@ -1,7 +1,7 @@
 @import url(../../libraries/bootstrap_css/bootstrap.min.css);
 @import url(../../libraries/fontawesome/css/all.min.css);
-@import url(./dark.css);
 @import url(./input.css);
+@import url(./dark.css);
 
 :root {
   --blue: rgb(13, 110, 253);

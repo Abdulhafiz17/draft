@@ -1,39 +1,58 @@
 <template>
-  <div class="DETAILS">
-    <button @click="collapse = !collapse">
-      <slot name="header" />
-      <span>
-        <i :class="`fa fa-lg fa-${collapse ? `minus` : `plus`}`" />
-      </span>
-    </button>
-    <transition name="COLLAPSE">
-      <div class="DETAILS-BODY" v-if="collapse">
-        <slot name="body" />
-      </div>
-    </transition>
-  </div>
+  <transition name="COLLAPSE">
+    <div class="COLLAPSE-BODY" v-if="active">
+      <slot />
+    </div>
+  </transition>
 </template>
 
 <script>
 export default {
   name: "collapse",
+  props: {
+    id: { type: String, required: true },
+  },
   data() {
     return {
-      collapse: false,
+      active: false,
     };
   },
-  methods: {},
+  computed: {
+    buttons() {
+      return document.querySelectorAll(`[toggle-collapse="${this.$props.id}"]`);
+    },
+  },
+  mounted() {
+    this.buttons.forEach((button) => {
+      button.onclick = () => {
+        this.active = !this.active;
+      };
+    });
+  },
 };
 </script>
 
 <style scoped>
+:root {
+  --blue: rgb(13, 110, 253);
+  --indigo: rgb(102, 16, 242);
+  --purple: rgb(111, 66, 193);
+  --pink: rgb(214, 51, 132);
+  --red: rgb(220, 53, 69);
+  --orange: rgb(253, 126, 20);
+  --yellow: rgb(255, 193, 7);
+  --green: rgb(25, 135, 84);
+  --teal: rgb(32, 201, 151);
+  --cyan: rgb(13, 202, 240);
+}
+
 .COLLAPSE-enter-active,
 .COLLAPSE-leave-active {
-  transform-origin: top;
   transition: all 0.2s;
 }
 
 .COLLAPSE-enter-active {
+  transform-origin: top;
   animation: toggleCollapse 0.2s ease;
 }
 
@@ -52,35 +71,10 @@ export default {
   }
 }
 
-.DETAILS {
-  margin: 3px 0;
-  padding: 0;
-}
-
-.DETAILS > button {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 5px 10px;
-  border: 1px solid rgb(13, 110, 253);
-  border-radius: 10px;
-  background: white;
-}
-
-.DETAILS > button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.DETAILS .DETAILS-BODY {
+.COLLAPSE-BODY {
   margin-top: 5px;
   padding: 10px;
-  border: 1px solid rgb(13, 110, 253);
+  border: thin solid var(--blue);
   border-radius: 10px;
   background: white;
 }
