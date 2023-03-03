@@ -28,6 +28,20 @@
         </card>
       </router-link>
     </div>
+    <div class="col-md-3">
+      <card>
+        <dropdown id="example" @scroll="a()">
+          <button toggle-dropdown>button</button>
+          <template #menu>
+            <ul>
+              <li v-for="item in 5">
+                {{ item }}
+              </li>
+            </ul>
+          </template>
+        </dropdown>
+      </card>
+    </div>
   </div>
 </template>
 
@@ -43,22 +57,9 @@ export default {
       utils,
     };
   },
-  created() {},
-  mounted() {},
   methods: {
-    sendFile() {
-      let file = document.querySelector("[file]").files[0];
-      let data = new FormData();
-      data.append("file", file);
-      api
-        .createFile(data)
-        .then((res) => {
-          console.log(res.data);
-          file = null;
-        })
-        .catch((err) => {
-          api.catchError(err);
-        });
+    a() {
+      console.log(1);
     },
   },
 };
