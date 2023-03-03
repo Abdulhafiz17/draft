@@ -1,55 +1,80 @@
 <template>
-  <button type="button">
-    <span class="title">
-      {{ title }}
-    </span>
-    <span>
-      <i class="fa fa-sm fa-angle-down" />
-    </span>
-  </button>
-  <ul class="menu">
-    <li class="menu-item" v-for="item in data" :key="item">
-      {{ item.name }}
-    </li>
-  </ul>
+  <div :id="id" class="DROPDOWN">
+    <slot />
+    <transition name="DROPDOWN">
+      <div
+        class="DROPDOWN-MENU"
+        @click="open = false"
+        @scroll="$emit('scroll')"
+        v-if="open"
+      >
+        <slot name="menu" />
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script>
 export default {
   name: "dropdown",
-  props: ["button_title", "data_list"],
+  props: { id: { required: true } },
+  emits: ["scroll"],
+  data() {
+    return {
+      open: false,
+    };
+  },
   computed: {
-    title() {
-      return this.$props.button_title;
+    toggle() {
+      return document
+        .querySelector(`#${this.$props.id}`, `.DROPDOWN`)
+        .querySelector("[toggle-dropdown]");
     },
-    data() {
-      return this.$props.data_list;
-    },
+  },
+  mounted() {
+    this.toggle.onclick = () => {
+      this.open = !this.open;
+    };
   },
 };
 </script>
 
 <style scoped>
-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  outline: none;
-  border: none;
-  border-radius: 8px;
-  background: rgb(13, 110, 253);
+.DROPDOWN {
+  position: relative;
+  border: thin solid red;
 }
 
-button .title {
-  margin-right: 3px;
+.DROPDOWN-MENU {
+  position: absolute;
+  left: 0;
+  right: 0;
+  max-height: 20vh;
+  margin-top: 5px;
+  overflow: auto;
+  background: rgb(0, 0, 0);
+  border: thin solid red;
+  z-index: 1;
 }
 
-.menu {
-  display: none;
+.DROPDOWN-enter-active {
+  transform-origin: top;
+  animation: toggleDropdown 0.2s ease;
 }
 
-.menu-item {
-  list-style: none;
+.DROPDOWN-leave-active {
+  transform-origin: top;
+  animation: toggleDropdown 0.2s ease reverse;
+}
+
+@keyframes toggleDropdown {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
 }
 </style>
