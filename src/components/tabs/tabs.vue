@@ -1,13 +1,13 @@
 <template>
   <div class="BUTTONS">
+    <div class="OVERLAY"></div>
     <button
       v-for="(item, index) in tab_buttons"
       :key="item"
-      :class="item == active_tab ? active_class : ''"
-      @click="setTab(index)"
-      :text="item"
+      :name="tab_slots[index]"
+      @click="setTab($event, index)"
     >
-      <span>{{ item }}</span>
+      {{ item }}
     </button>
   </div>
   <transition name="tab" mode="out-in">
@@ -25,7 +25,7 @@ export default {
     return {
       active_tab: this.$props.buttons[0],
       active_slot: this.$props.slots[0],
-      active_class: "active",
+      timeout: null,
     };
   },
   computed: {
@@ -35,16 +35,28 @@ export default {
     tab_slots() {
       return this.$props.slots;
     },
+    overlay() {
+      return document.querySelector(".OVERLAY");
+    },
+  },
+  mounted() {
+    const button = document.querySelector(`[name="${this.tab_slots[0]}"]`);
+    this.overlay.style.width = `${button.offsetWidth}px`;
+    this.overlay.style.height = `${button.offsetHeight}px`;
   },
   methods: {
-    setTab(index) {
-      let timeout = null;
-      clearTimeout(timeout);
+    setTab(event, index) {
+      this.timeout = null;
+      clearTimeout(this.timeout);
 
       this.active_tab = null;
       this.active_slot = null;
 
-      timeout = setTimeout(() => {
+      this.overlay.style.width = `${event.target.offsetWidth}px`;
+      this.overlay.style.height = `${event.target.offsetHeight}px`;
+      this.overlay.style.translate = `${event.clientX - event.offsetX - 9}px 0`;
+
+      this.timeout = setTimeout(() => {
         this.active_tab = this.tab_buttons[index];
         this.active_slot = this.tab_slots[index];
       }, 100);
@@ -70,21 +82,22 @@ export default {
 }
 
 .BUTTONS {
-  display: flex;
+  position: relative;
   margin: 0 0 5px 0;
   padding: 5px;
+  display: flex;
+  background: whitesmoke;
   border: 1px solid var(--blue);
   border-radius: 10px;
-  background: white;
   box-shadow: 0 5px 10px -5px var(--blue);
 }
 
-.BUTTONS > button:first-child {
-  border-radius: 10px 0 0 10px;
-}
-
-.BUTTONS > button:last-child {
-  border-radius: 0 10px 10px 0;
+.OVERLAY {
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px -1px gray;
+  transition: all 0.5s;
 }
 
 button {
@@ -94,12 +107,6 @@ button {
   border: none;
   color: black;
   background: initial;
-  box-shadow: inset 0 0 5px -1px var(--blue), 0 1px 5px -2px var(--blue);
-  transition: all 0.15s;
-}
-
-button.active {
-  box-shadow: inset 0 0 1px 2px var(--blue), 0 1px 5px -2px var(--blue);
 }
 
 .CONTENT {
@@ -120,11 +127,10 @@ button.active {
 
 @keyframes changeTab {
   0% {
-    transform: scale(0);
     opacity: 0;
   }
   100% {
-    transform: scale(1);
+    opacity: 1;
   }
 }
 </style>

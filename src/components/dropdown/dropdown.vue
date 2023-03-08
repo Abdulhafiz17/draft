@@ -2,12 +2,7 @@
   <div :id="id" class="DROPDOWN">
     <slot />
     <transition name="DROPDOWN">
-      <div
-        class="DROPDOWN-MENU"
-        @click="open = false"
-        @scroll="$emit('scroll')"
-        v-if="open"
-      >
+      <div class="DROPDOWN-MENU" @scroll="$emit('scroll')" v-if="open">
         <slot name="menu" />
       </div>
     </transition>
@@ -34,6 +29,13 @@ export default {
   mounted() {
     this.toggle.onclick = () => {
       this.open = !this.open;
+      return;
+    };
+    window.onclick = (event) => {
+      if (event.target !== this.toggle) {
+        this.open = false;
+      }
+      return;
     };
   },
 };
@@ -42,7 +44,6 @@ export default {
 <style scoped>
 .DROPDOWN {
   position: relative;
-  border: thin solid red;
 }
 
 .DROPDOWN-MENU {
@@ -51,30 +52,32 @@ export default {
   right: 0;
   max-height: 20vh;
   margin-top: 5px;
+  padding: 5px;
+  background: var(--background);
+  border: thin solid var(--blue);
+  border-radius: 5px;
   overflow: auto;
-  background: rgb(0, 0, 0);
-  border: thin solid red;
   z-index: 1;
 }
 
 .DROPDOWN-enter-active {
   transform-origin: top;
-  animation: toggleDropdown 0.2s ease;
+  animation: toggleDropdown 0.15s ease;
 }
 
 .DROPDOWN-leave-active {
   transform-origin: top;
-  animation: toggleDropdown 0.2s ease reverse;
+  animation: toggleDropdown 0.15s ease reverse;
 }
 
 @keyframes toggleDropdown {
   from {
     opacity: 0;
-    scale: 0;
+    translate: 0 -10px;
   }
   to {
     opacity: 1;
-    scale: 1;
+    translate: 0 0;
   }
 }
 </style>

@@ -28,20 +28,14 @@
         </card>
       </router-link>
     </div>
-    <div class="col-md-3">
-      <card>
-        <dropdown id="example" @scroll="a()">
-          <button toggle-dropdown>button</button>
-          <template #menu>
-            <ul>
-              <li v-for="item in 5">
-                {{ item }}
-              </li>
-            </ul>
-          </template>
-        </dropdown>
-      </card>
-    </div>
+    <tabs
+      :buttons="[`Home`, `Profile`, `Setting`]"
+      :slots="[`home`, `profile`, `setting`]"
+    >
+      <template #home> <h1>home</h1> </template>
+      <template #profile> <h1>profile</h1> </template>
+      <template #setting> <h1>setting</h1> </template>
+    </tabs>
   </div>
 </template>
 
@@ -55,13 +49,10 @@ export default {
   data() {
     return {
       utils,
+      data: null,
     };
   },
-  methods: {
-    a() {
-      console.log(1);
-    },
-  },
+  methods: {},
 };
 </script>
 
