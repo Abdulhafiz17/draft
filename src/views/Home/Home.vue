@@ -40,19 +40,17 @@
 </template>
 
 <script>
-import * as api from "../../utils/api/api.js";
-import * as utils from "../../utils/utils.js";
-import * as schema from "../../utils/schema.js";
 export default {
   name: "Home",
   emits: ["setloading"],
   data() {
     return {
-      utils,
       data: null,
     };
   },
-  methods: {},
+  created() {
+    this.$util.err();
+  },
 };
 </script>
 

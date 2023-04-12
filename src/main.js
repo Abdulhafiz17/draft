@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import util from "./utils/utils";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store/store";
@@ -11,7 +12,11 @@ import card from "./components/card/card.vue";
 import modal from "./components/modal/modal.vue";
 import btn from "./components/button/button.vue";
 
-createApp(App)
+const app = createApp(App);
+
+app.config.globalProperties.$util = util;
+
+app
   .use(router)
   .use(VWave)
   .use(store)
