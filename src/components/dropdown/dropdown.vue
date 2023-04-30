@@ -13,7 +13,7 @@
 export default {
   name: "dropdown",
   props: { id: { required: true } },
-  emits: ["scroll"],
+  emits: { scroll: null },
   data() {
     return {
       open: false,
@@ -50,7 +50,7 @@ export default {
   position: absolute;
   left: 0;
   right: 0;
-  max-height: 20vh;
+  max-height: 25vh;
   margin-top: 5px;
   padding: 5px;
   background: var(--background);

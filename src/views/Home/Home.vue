@@ -28,29 +28,23 @@
         </card>
       </router-link>
     </div>
-    <tabs
-      :buttons="[`Home`, `Profile`, `Setting`]"
-      :slots="[`home`, `profile`, `setting`]"
-    >
-      <template #home> <h1>home</h1> </template>
-      <template #profile> <h1>profile</h1> </template>
-      <template #setting> <h1>setting</h1> </template>
-    </tabs>
+  </div>
+  <div class="w-25">
+    <data-dropdown v-model="data" all />
   </div>
 </template>
 
 <script>
+import dataDropdown from "@/components/data-dropdown/data-dropdown.vue";
 export default {
   name: "Home",
-  emits: ["setloading"],
+  components: { dataDropdown },
   data() {
     return {
-      data: null,
+      data: "",
     };
   },
-  created() {
-    this.$util.err();
-  },
+  created() {},
 };
 </script>
 
