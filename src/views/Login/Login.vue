@@ -34,9 +34,8 @@
 </template>
 
 <script>
+import api from "@/server/api";
 import Logo from "../../components/logo/crudlogo.vue";
-import * as api from "../../utils/api/api";
-import * as utils from "../../utils/utils";
 export default {
   name: "Login",
   components: { Logo },
@@ -61,7 +60,6 @@ export default {
           console.error(err);
         });
     },
-    get() {},
   },
 };
 </script>

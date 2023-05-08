@@ -49,8 +49,8 @@
 </template>
 
 <script>
+import api from "@/server/api";
 import swal from "sweetalert";
-import * as api from "../../utils/api/api";
 export default {
   name: "Home",
   emits: ["setloading"],

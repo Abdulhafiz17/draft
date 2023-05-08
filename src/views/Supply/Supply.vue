@@ -145,8 +145,8 @@
 </template>
 
 <script>
+import util from "@/server/util";
 import swal from "sweetalert";
-import { error } from "@/utils/utils";
 export default {
   name: "Supply",
   emits: ["setloading"],

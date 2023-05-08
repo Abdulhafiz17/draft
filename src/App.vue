@@ -1,5 +1,7 @@
 <template>
-  <div id="main">
+  <toolbar v-if="$route.name !== 'login'" />
+  <sidebar v-if="$route.name !== 'login'" />
+  <div id="main" :style="[{ marginLeft: margin, paddingTop: padding }]">
     <Router-view v-slot="{ Component, route }">
       <transition name="router" mode="out-in">
         <div :key="route.path">
@@ -12,23 +14,35 @@
 </template>
 
 <script>
-import Login from "./views/Login/Login.vue";
+import toolbar from "./components/toolbar/toolbar.vue";
+import sidebar from "./components/sidebar/sidebar.vue";
 import Isloading from "./components/animation/loading.vue";
 export default {
   name: "App",
-  components: { Login, Isloading },
+  components: { toolbar, sidebar, Isloading },
   data() {
     return {
       mode: localStorage["mode"],
     };
   },
   computed: {
+    sidebar() {
+      return this.$store.getters.sidebar;
+    },
     loading() {
       return this.$store.getters.loading;
     },
+    margin() {
+      if (this.sidebar && this.$route.name !== "login") return "60px";
+      else return "";
+    },
+    padding() {
+      if (this.$route.name !== "login") return "7vh";
+      else return "";
+    },
   },
   created() {
-    document.body.className = this.mode;
+    document.body.className = this.mode || "";
   },
   mounted() {},
 };
@@ -36,29 +50,9 @@ export default {
 
 <style lang="scss">
 @import url(./components/style/main.css);
-.router-enter-active {
-  animation: fadeIn 0.3s ease;
-}
 
-@keyframes fadeIn {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.router-leave-active {
-  animation: fadeOut 0.3s ease;
-}
-
-@keyframes fadeOut {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0.8);
-  }
+.router-enter-from,
+.router-leave-to {
+  opacity: 0;
 }
 </style>

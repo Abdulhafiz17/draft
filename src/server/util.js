@@ -4,18 +4,21 @@ export default {
   currency(number = 0) {
     return Intl.NumberFormat("uz").format(number.toFixed(2));
   },
-  success() {
+  captalize(string = "") {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  },
+  success(title = "") {
     return swal({
       icon: "success",
-      title: " ",
+      title: title || " ",
       buttons: false,
-      timer: 1200,
+      timer: 1000,
     });
   },
-  err(title = " ") {
+  err(title = "") {
     return swal({
       icon: "error",
-      title: title,
+      title: title || " ",
       buttons: false,
       timer: 1500,
       dangerMode: true,
@@ -27,19 +30,6 @@ export default {
       difference = end_date.getTime() - start_date.getTime(),
       days = Math.ceil(difference / (1000 * 3600 * 24));
     return days;
-  },
-  ssa(array, sort_key, search_key, search) {
-    return array
-      .sort((x, y) => {
-        let a = x[sort_key];
-        let b = y[sort_key];
-        return a > b ? 1 : a == b ? 0 : -1;
-      })
-      .filter((item) => {
-        return String(item[search_key])
-          .toLowerCase()
-          .match(String(search).toLowerCase());
-      });
   },
   countOrdinalNumber(index, page, limit) {
     let start = null,

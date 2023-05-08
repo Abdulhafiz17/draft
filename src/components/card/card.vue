@@ -51,10 +51,6 @@ export default {
   text-align: v-bind(text_align);
 }
 
-.CARD:last-of-type {
-  margin-top: 5px;
-}
-
 .CARD > .BODY {
   padding: 10px;
 }

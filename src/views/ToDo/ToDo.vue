@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import * as api from "@/utils/api/api";
+import api from "@/server/api";
 export default {
   name: "ToDo",
   data() {

@@ -1,41 +1,17 @@
 <template>
   <div class="row">
-    <div class="col-md-3 my-1">
-      <router-link to="/todo">
-        <card color="green">
-          <h4>ToDo</h4>
-        </card>
-      </router-link>
-    </div>
-    <div class="col-md-3 my-1">
-      <router-link to="/supply">
-        <card color="green">
-          <h4>Count supply</h4>
-        </card>
-      </router-link>
-    </div>
-    <div class="col-md-3 my-1">
-      <router-link to="/chat">
-        <card color="green">
-          <h4>Chat</h4>
-        </card>
-      </router-link>
-    </div>
-    <div class="col-md-3 my-1">
-      <router-link to="/setting">
-        <card color="green">
-          <h4>Setting</h4>
-        </card>
-      </router-link>
+    <div class="col-4 mb-1" v-for="item in 50">
+      <card color="green">
+        <h4>{{ item }}</h4>
+      </card>
     </div>
   </div>
-  <div class="w-25">
-    <data-dropdown v-model="data" all />
-  </div>
+  <data-dropdown v-model="data" all />
 </template>
 
 <script>
 import dataDropdown from "@/components/data-dropdown/data-dropdown.vue";
+import api from "@/server/api";
 export default {
   name: "Home",
   components: { dataDropdown },
@@ -44,7 +20,11 @@ export default {
       data: "",
     };
   },
-  created() {},
+  created() {
+    // api.get().then((res) => {
+    //   console.log(res.data);
+    // });
+  },
 };
 </script>
 
