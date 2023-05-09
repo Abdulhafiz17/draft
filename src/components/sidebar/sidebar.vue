@@ -7,13 +7,6 @@
         :title="item.title"
         :link="item.link"
       />
-      <sidebarItem
-        v-for="item in 10"
-        icon="fa fa-square"
-        title="item"
-        link="item"
-      />
-      <!-- @click="toggle()" -->
     </div>
   </Transition>
 </template>
@@ -67,9 +60,9 @@ export default {
   width: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 10px;
+  justify-content: start;
   align-items: center;
+  gap: 10px;
   background-color: rgb(250, 250, 250, 0.7);
   backdrop-filter: blur(3px);
   border: 1px solid var(--teal);
