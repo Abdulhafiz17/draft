@@ -1,19 +1,21 @@
 <template>
   <div class="TOOLBAR" :class="{ CHANGE: scroll }">
     <h4>{{ $util.captalize($route.name) }}</h4>
-    <div class="OPTION-BUTTONS">
-      <button v-for="item in 10">lorem</button>
-    </div>
-    <div class="DEFAULT-BUTTONS">
-      <button v-if="small">
-        <icon icon="fa fa-bars" />
-      </button>
-      <button @click="toggleSidebar()">
-        <icon icon="fa fa-bars" />
-      </button>
-      <button>
-        <icon icon="fa fa-sign-out" />
-      </button>
+    <div class="BUTTONS">
+      <div class="OPTION-BUTTONS">
+        <button v-for="item in 10">lorem</button>
+      </div>
+      <div class="DEFAULT-BUTTONS">
+        <button v-if="small">
+          <icon icon="fa fa-bars" />
+        </button>
+        <button @click="toggleSidebar()">
+          <icon icon="fa fa-bars" />
+        </button>
+        <button>
+          <icon icon="fa fa-sign-out" />
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -93,10 +95,13 @@ button:hover {
   box-shadow: 0 0 10px -1px gray;
 }
 
+.BUTTONS {
+  display: flex;
+}
+
 .OPTION-BUTTONS,
 .DEFAULT-BUTTONS {
   display: flex;
-  gap: 5px;
 }
 
 .DEFAULT-BUTTONS button {
