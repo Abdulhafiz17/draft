@@ -1,15 +1,17 @@
 <template>
   <toolbar v-if="$route.name !== 'login'" />
   <sidebar v-if="$route.name !== 'login'" />
-  <div id="main" :style="[{ marginLeft: margin, paddingTop: padding }]">
-    <Router-view v-slot="{ Component, route }">
-      <transition name="router" mode="out-in">
-        <div :key="route.path">
-          <component :is="Component"></component>
-        </div>
-      </transition>
-    </Router-view>
-  </div>
+  <Router-view v-slot="{ Component, route }">
+    <transition name="router" mode="out-in">
+      <div
+        :key="route.path"
+        id="main"
+        :style="{ marginLeft: margin, paddingTop: padding }"
+      >
+        <component :is="Component"></component>
+      </div>
+    </transition>
+  </Router-view>
   <Isloading v-if="loading" />
 </template>
 

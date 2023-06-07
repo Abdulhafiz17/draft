@@ -1,6 +1,6 @@
 <template>
   <button :name="title" @click="router()">
-    <icon :icon="icon" />
+    <i :class="icon"></i>
   </button>
 </template>
 

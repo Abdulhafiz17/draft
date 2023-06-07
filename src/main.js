@@ -11,7 +11,6 @@ import dropdown from "./components/dropdown/dropdown.vue";
 import card from "./components/card/card.vue";
 import modal from "./components/modal/modal.vue";
 import btn from "./components/button/button.vue";
-import icon from "./components/icon/icon.vue";
 
 const app = createApp(App);
 
@@ -27,5 +26,4 @@ app
   .component("card", card)
   .component("modal", modal)
   .component("btn", btn)
-  .component("icon", icon)
   .mount("#app");

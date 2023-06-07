@@ -73,55 +73,8 @@ export default {
       todos: [],
     };
   },
-  created() {
-    this.get();
-  },
-  methods: {
-    get() {
-      api
-        .todos()
-        .then((res) => {
-          this.todos = res.data;
-          this.todos.forEach((item) => {
-            item.edit = false;
-          });
-        })
-        .catch((err) => {
-          api.catchError(err);
-        });
-    },
-    post(data) {
-      api
-        .createTodo(data)
-        .then((res) => {
-          this.todo.title = null;
-          this.get();
-        })
-        .catch((err) => {
-          api.catchError(err);
-        });
-    },
-    put(data) {
-      api
-        .updateTodo(data)
-        .then((res) => {
-          this.get();
-        })
-        .catch((err) => {
-          api.catchError(err);
-        });
-    },
-    remove(data) {
-      api
-        .removeTodo(data)
-        .then((res) => {
-          this.get();
-        })
-        .catch((err) => {
-          api.catchError(err);
-        });
-    },
-  },
+  created() {},
+  methods: {},
 };
 </script>
 

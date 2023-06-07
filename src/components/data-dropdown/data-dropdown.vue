@@ -1,7 +1,7 @@
 <template>
   <dropdown id="test">
     <button toggle-dropdown class="btn btn-outline-primary w-100">
-      {{ modelValue || "toggle" }}
+      {{ modelValue?.first_name || "select user" }}
     </button>
     <template #menu>
       <ul>
@@ -11,7 +11,7 @@
           :key="item"
           @click="$emit('update:modelValue', item)"
         >
-          {{ item }}
+          {{ item.first_name }}
         </li>
       </ul>
     </template>
@@ -19,16 +19,32 @@
 </template>
 
 <script>
+import api from "@/server/api";
 import dropdown from "../dropdown/dropdown.vue";
 export default {
   name: "data-dropdown",
-  props: { modelValue: null, all: Boolean },
+  props: {
+    modelValue: null,
+    data: Array,
+    all: Boolean,
+  },
   emits: ["update:modelValue"],
   components: { dropdown },
   data() {
     return {
-      array: ["one", "two", "three"],
+      array: [],
     };
+  },
+  created() {
+    this.get();
+  },
+  methods: {
+    get() {
+      const params = { page: 1, per_page: 10 };
+      api.users(params).then((res) => {
+        this.array = res.data.data;
+      });
+    },
   },
 };
 </script>

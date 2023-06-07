@@ -1,6 +1,6 @@
 import axios from "axios";
 import baseurl from "./baseurl";
-import errorHandle from "./error";
+import handle from "./error";
 import store from "@/store/store";
 
 export default async function server(endpoint = "", method = "get", data = {}) {
@@ -18,7 +18,7 @@ export default async function server(endpoint = "", method = "get", data = {}) {
       result = res;
     })
     .catch((err) => {
-      errorHandle(err).then((value) => {
+      handle(err).then((value) => {
         if (value) {
           server(endpoint, method, data);
         }

@@ -31,7 +31,6 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -54,18 +53,20 @@
 
 ::-webkit-scrollbar-thumb {
   background: gray;
+  border-radius: 10px;
 }
 
 /* responsive */
 
 .responsive-y {
-  padding: 0 5px 10px 5px;
+  scrollbar-gutter: stable both-edges;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .responsive-x {
-  padding: 0 10px 5px 5px;
+  scrollbar-gutter: stable both-edges;
+  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
 }
@@ -85,13 +86,6 @@ h6 {
 
 hr {
   margin: 5px;
-}
-
-/* icon */
-
-.material-symbols-rounded {
-  display: flex;
-  align-items: center;
 }
 
 /* a */
@@ -121,19 +115,23 @@ label {
 /* list */
 
 ul {
-  list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 5px;
+  border: thin solid lightgray;
   border-radius: 10px;
+  list-style: none;
+}
+
+ul.list {
+  gap: 5px;
 }
 
 li {
   padding: 5px 10px;
   text-align: left;
-  border: 1px solid rgb(0, 0, 0, 0.5);
-  transition: all 0.15s;
+  border-bottom: thin solid lightgray;
+  transition: all 0.1s;
 }
 
 li:first-child {
@@ -147,13 +145,9 @@ li:last-child {
 }
 
 li:hover {
-  background: rgb(0, 0, 0, 0.3);
+  background: whitesmoke;
 }
 
-ul.click > li:hover {
-  transform: translate(0, -5px);
-}
-
-ul.click > li:active {
-  transform: translate(0, 0);
+li:active {
+  background: lightgray;
 }

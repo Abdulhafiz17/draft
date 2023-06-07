@@ -20,6 +20,11 @@ export default {
     return {
       routes: [
         {
+          icon: "fa fa-home",
+          title: "Home",
+          link: "/home",
+        },
+        {
           icon: "fa fa-bars",
           title: "To Do",
           link: "/todo",

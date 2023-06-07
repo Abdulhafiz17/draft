@@ -1,1 +1,1 @@
-export default "https://example.com/";
+export default "https://reqres.in/api/";

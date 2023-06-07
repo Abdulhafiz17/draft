@@ -1,9 +1,11 @@
 <template>
   <div :id="id" class="DROPDOWN">
-    <slot />
+    <slot></slot>
     <transition name="DROPDOWN">
       <div class="DROPDOWN-MENU" @scroll="$emit('scroll')" v-if="open">
-        <slot name="menu" />
+        <div class="responsive-y" style="max-height: 25vh">
+          <slot name="menu"></slot>
+        </div>
       </div>
     </transition>
   </div>
@@ -29,19 +31,17 @@ export default {
   mounted() {
     this.toggle.onclick = () => {
       this.open = !this.open;
-      return;
     };
     window.onclick = (event) => {
       if (event.target !== this.toggle) {
         this.open = false;
       }
-      return;
     };
   },
 };
 </script>
 
-<style scoped>
+<style>
 .DROPDOWN {
   position: relative;
 }
@@ -50,23 +50,21 @@ export default {
   position: absolute;
   left: 0;
   right: 0;
-  max-height: 25vh;
   margin-top: 5px;
   padding: 5px;
+  max-height: max-content;
   background: var(--background);
   border: thin solid var(--blue);
-  border-radius: 5px;
-  overflow: auto;
+  border-radius: 10px;
+  overflow: hidden;
   z-index: 1;
 }
 
 .DROPDOWN-enter-active {
-  transform-origin: top;
   animation: toggleDropdown 0.15s ease;
 }
 
 .DROPDOWN-leave-active {
-  transform-origin: top;
   animation: toggleDropdown 0.15s ease reverse;
 }
 

@@ -1,6 +1,7 @@
 import swal from "sweetalert";
 
-export default function errorHandle(error) {
+export default function handle(error) {
+  console.error(error);
   return swal({
     icon: "error",
     title: "Xatolik",

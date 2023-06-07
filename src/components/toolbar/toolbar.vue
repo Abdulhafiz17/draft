@@ -7,13 +7,13 @@
       </div>
       <div class="DEFAULT-BUTTONS">
         <button v-if="small">
-          <icon icon="fa fa-bars" />
+          <i class="fa fa-bars"></i>
         </button>
         <button @click="toggleSidebar()">
-          <icon icon="fa fa-bars" />
+          <i class="fa fa-bars"></i>
         </button>
         <button>
-          <icon icon="fa fa-sign-out" />
+          <i class="fa fa-sign-out"></i>
         </button>
       </div>
     </div>
