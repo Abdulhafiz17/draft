@@ -3,7 +3,7 @@
     <h4>{{ $util.captalize($route.name) }}</h4>
     <div class="BUTTONS">
       <div class="OPTION-BUTTONS">
-        <button v-for="item in 10">lorem</button>
+        <button>button</button>
       </div>
       <div class="DEFAULT-BUTTONS">
         <button v-if="small">
