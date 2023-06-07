@@ -1,23 +1,23 @@
 <template>
-  <form @submit.prevent="post(todo)">
-    <card class="mb-1">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="input-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="new todo"
-              required
-              color="teal"
-              v-model="todo.title"
-            />
-            <btn color="teal"><i class="fa fa-plus" /></btn>
-          </div>
+  <!-- <form @submit.prevent="post(todo)"> -->
+  <card class="mb-1">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="new todo"
+            required
+            color="teal"
+            v-model="todo.title"
+          />
+          <btn color="teal"><i class="fa fa-plus" /></btn>
         </div>
       </div>
-    </card>
-  </form>
+    </div>
+  </card>
+  <!-- </form> -->
   <ul v-show="todos.length">
     <li v-for="item in todos" :key="item">
       <div v-if="!item.edit">
